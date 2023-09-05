@@ -1,9 +1,9 @@
 import './index.css';
-    /**
+/**
  * @title Sprite SheetAnimation
  * @category 2D
  */
-import { OrbitControl } from "@galacean/engine-toolkit-controls";
+import { OrbitControl } from '@galacean/engine-toolkit-controls';
 import {
   AssetType,
   Camera,
@@ -14,21 +14,21 @@ import {
   Vector2,
   WebGLEngine,
   Transform,
-} from "@galacean/engine";
-import * as TWEEN from "@tweenjs/tween.js";
+} from '@galacean/engine';
+import * as TWEEN from '@tweenjs/tween.js';
 
 init();
 
 function init(): void {
   // Create engine object.
-  const engine = new WebGLEngine("canvas");
+  const engine = new WebGLEngine('canvas');
   engine.canvas.resizeByClientSize();
 
   // Create rootEntity.
   const rootEntity = engine.sceneManager.activeScene.createRootEntity();
 
   // Create camera.
-  const cameraEntity = rootEntity.createChild("Camera");
+  const cameraEntity = rootEntity.createChild('Camera');
   cameraEntity.transform.setPosition(0, 0, 15);
   cameraEntity.addComponent(Camera);
   cameraEntity.addComponent(OrbitControl);
@@ -36,11 +36,11 @@ function init(): void {
   // Load texture and create sprite sheet animation.
   engine.resourceManager
     .load<Texture2D>({
-      url: "https://gw.alipayobjects.com/mdn/rms_7c464e/afts/img/A*9nsHSpx28rAAAAAAAAAAAAAAARQnAQ",
+      url: 'https://gw.alipayobjects.com/mdn/rms_7c464e/afts/img/A*9nsHSpx28rAAAAAAAAAAAAAAARQnAQ',
       type: AssetType.Texture2D,
     })
     .then((texture) => {
-      const spriteEntity = rootEntity.createChild("Sprite");
+      const spriteEntity = rootEntity.createChild('Sprite');
       spriteEntity.addComponent(SpriteRenderer).sprite = new Sprite(
         engine,
         texture,
@@ -148,5 +148,3 @@ class FrameSpriteScript extends Script {
     return this._birdTransform.position.y;
   }
 }
-
-  
